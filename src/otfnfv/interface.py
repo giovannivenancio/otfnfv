@@ -1,20 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from Tkinter import *
+import PIL
 import Tkinter
 import collections
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+from Tkinter import *
 from textwrap import fill
 from time import gmtime, strftime
 from PIL import ImageTk, Image
-import numpy as np
-import matplotlib.pyplot as plt
 from utils import PATH
-import matplotlib
-matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 from matplotlib.figure import Figure
 from controller import *
+
+#matplotlib.use("TkAgg")
 
 class App:
 

@@ -10,7 +10,6 @@ import sys
 import time
 import datetime
 import threading
-import psutil
 
 class VNFFilter():
 
@@ -97,7 +96,7 @@ class VNFFilter():
 
                 if len(size) == 2:
                     size = '0' + size
-
+                print "SENDING..."
                 self.vnf_connections[vnf].send(size + to_send)
 
 class Sniffer():
@@ -195,40 +194,6 @@ class Sniffer():
 
         sniff(iface=INTERFACE, prn=self.prepare_packet, store=0, filter="udp")
 
-def performance():
-    i = 0
-    last = 0; last_sum = 0
-
-    cpu = True
-    througput = False
-
-    if cpu:
-        while True:
-            cpu_usage = str(psutil.cpu_percent())
-            log_msg = str(i) + ' ' + cpu_usage + '\n'
-            i += 1
-
-            sys.stdout.write(log_msg)
-            sys.stdout.flush()
-
-            time.sleep(0.5)
-    elif througput:
-        while True:
-            current_time = str(datetime.datetime.now().time())[:8]
-            pphs = str(count - last) # Packets per half-second
-            bphs = str(total_bytes - last_sum) # Bytes per half-second
-
-            log_msg = ' '.join([current_time, pphs, bphs]) + '\n'
-
-            sys.stdout.write(log_msg)
-            sys.stdout.flush()
-
-            last = count
-            last_sum = total_bytes
-
-            time.sleep(0.5)
-
-
 Filter = VNFFilter()
 sniffer = Sniffer()
 
@@ -246,9 +211,6 @@ global count
 global total_bytes
 count = 0
 total_bytes = 0
-
-perf = threading.Thread(target=performance)
-perf.start()
 
 while True:
     Filter.update_rules()

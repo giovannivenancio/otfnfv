@@ -226,7 +226,7 @@ class Controller():
         Start network
         """
 
-        mininet = PATH + 'gvnf/network.py'
+        mininet = PATH + 'otfnfv/network.py'
 
         cmd = [mininet, '&']
 

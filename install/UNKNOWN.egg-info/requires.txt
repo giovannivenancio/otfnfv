@@ -1,0 +1,10 @@
+pymongo
+pillow
+python-PIL
+python-imaging-tk
+ImageTk
+python-dateutil
+matplotlib
+pyparsing
+cycler
+functools32

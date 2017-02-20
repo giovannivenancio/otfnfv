@@ -10,7 +10,7 @@ signal.signal(signal.SIGINT, exit_network)
 
 if os.geteuid():
     print ("This program must run as root.")
-    print ("Try: sudo gvnf")
+    print ("Try: sudo otfnfv")
     exit(1)
 
 controller = Controller()
@@ -21,7 +21,7 @@ root = Tk()
 def on_closing():
     controller.stop_network()
 
-root.wm_title("OnTheFly VNF")
+root.wm_title("On-The-Fly NFV")
 
 app = App(root, controller)
 

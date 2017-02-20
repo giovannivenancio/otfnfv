@@ -5,7 +5,7 @@ import subprocess
 from pymongo import MongoClient
 
 # Settings file
-CONFIG_FILE = '/etc/gvnf.cfg'
+CONFIG_FILE = '/etc/otfnfv.cfg'
 
 config = ConfigParser.ConfigParser()
 config.read(CONFIG_FILE)

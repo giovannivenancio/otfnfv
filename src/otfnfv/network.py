@@ -82,11 +82,11 @@ class MininetNetwork():
         script = vnf_instance['script']
 
         if vnf_name == 'filter':
-            perf = ' > /var/log/gvnf/perf.log'
-            log_path = ' 2> /var/log/gvnf/filter.log'
+            perf = ' > /var/log/otfnfv/perf.log'
+            log_path = ' 2> /var/log/otfnfv/filter.log'
             cmd = PATH + script_dir + script + perf + log_path + ' &'
         else:
-            log_path = ' 2> /var/log/gvnf/%s.log' % vnf_name.lower()
+            log_path = ' 2> /var/log/otfnfv/%s.log' % vnf_name.lower()
             cmd = PATH + script_dir + script + log_path + ' &'
 
         host.cmd(cmd)
@@ -149,7 +149,7 @@ if __name__ == '__main__':
     #CLI(net)
 
     # Start NFV
-    mn.instance(vnf_filter, 'gvnf/', 'filter')
+    mn.instance(vnf_filter, 'otfnfv/', 'filter')
 
     vnf_status = mn.control.find_one({}, {'vnf' : 1})['vnf']
 

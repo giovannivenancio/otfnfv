@@ -1,0 +1,12 @@
+- criar script para automatizar config da ferramenta
+    - conferir se arquivos existem
+    - conferir se entradas são válidas
+
+- mudar exemplo de arquivo de config
+    - mudar tbm o nome pra ...cfg.example
+
+- controlador
+    - mudar nome snort para filter
+    - identificar qual porta usar (provavelmente é a do IP usado no host mininet)
+
+- criar documentação

@@ -4,10 +4,10 @@ import os
 import ConfigParser
 from pymongo import MongoClient
 
-CONFIG_FILE = '/etc/gvnf.cfg'
+CONFIG_FILE = '/etc/otfnfv.cfg'
 
 if not os.path.isfile(CONFIG_FILE):
-    print "Make sure you have a %s file in /etc !" % 'gvnf.cfg'
+    print "Make sure you have a %s file in /etc !" % 'otfnfv.cfg'
     exit(1)
 
 def connect():

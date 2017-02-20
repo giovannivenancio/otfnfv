@@ -6,10 +6,10 @@ import subprocess
 from pymongo import MongoClient
 
 # Settings file
-CONFIG_FILE = '/etc/gvnf.cfg'
+CONFIG_FILE = '/etc/otfnfv.cfg'
 
 if not os.path.isfile(CONFIG_FILE):
-    print "Make sure you have a %s file in /etc !" % 'gvnf.cfg'
+    print "Make sure you have a %s file in /etc !" % 'otfnfv.cfg'
     exit(1)
 
 config = ConfigParser.ConfigParser()
@@ -98,4 +98,4 @@ def exit_network(signal, frame):
     rules.delete_many({})
 
     print "Killing main process"
-    subprocess.call(['pkill', '-f', 'gvnf'])
+    subprocess.call(['pkill', '-f', 'otfnfv'])
