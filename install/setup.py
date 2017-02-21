@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import os
 from setuptools import setup
 
@@ -18,5 +20,3 @@ setup(
         'cycler',
         'functools32'
     ])
-
-#LIMPAR DIRETORIOS E ARQUIVOSW CRIADOS

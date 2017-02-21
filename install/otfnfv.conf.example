@@ -1,0 +1,14 @@
+[mongodb]
+host = localhost
+remote_host = 192.168.1.101
+port = 27017
+db = otfnfv
+
+[system]
+path = /home/myhome/path_to_source_files/src/
+interface = filter-eth0
+
+[ryu]
+path = /home/myhome/path_to_ryu/ryu/app/
+app = controller.py
+port = 6633

@@ -11,25 +11,49 @@ echo "#################################"
 echo
 
 # Create config file in /etc
-cp "otfnfv.cfg" "/etc/"
-echo "[OK] Created otfnfv config file in /etc"
+cp "otfnfv.conf.example" "/etc/otfnfv.conf"
+echo "[OK] OTFNFV config file in /etc"
+echo
 
-# Move controller application to correct location
-echo -n "Inform your Ryu directory location: "
-read directory
-cp "controller.py" "$directory/ryu/app/"
-echo "[OK] Create Ryu controller application"
+# Move controller application to correct path
+echo -n "Ryu directory path: "
+read DIRECTORY
 
-# Create log dir
-mkdir "/var/log/otfnfv/"
-echo "[OK] Created log directory in /var/log/"
+if [ -d "$DIRECTORY" ]; then
+    cp "controller.py" "$DIRECTORY/ryu/app/"
+    echo "[OK] Ryu controller application"
+    echo
+else
+    echo
+    echo "Directory doesn't exist! Exiting..."
+    exit 1
+fi
+
+# Create log directory
+if [ ! -d "$DIRECTORY" ]; then
+    mkdir "/var/log/otfnfv/"
+    echo "[OK] Created log directory in /var/log/"
+fi
 
 # Create UDS Socket
 touch /var/run/statistics_socket
-echo "[OK] Create UDS Socket"
+echo "[OK] UDS Socket"
+echo
 
 # Create symbolic link to executable
-echo -n "Inform otfnfv executable location (under otfnfv/src/otfnfv directory): "
-read directory
-sudo ln -s "$directory/src/otfnfv/otfnfv.py" "/bin/otfnfv"
-echo "[OK] Created symbolic link to executable"
+echo -n "Inform otfnfv executable path (under otfnfv/src/otfnfv directory): "
+read DIRECTORY
+
+if [ -d "$DIRECTORY" ]; then
+    if [ ! -f "/bin/otfnfv" ]; then
+        sudo ln -s "$DIRECTORY/src/otfnfv/otfnfv.py" "/bin/otfnfv"
+        echo "[OK] Created symbolic link to executable"
+    fi
+else
+    echo
+    echo "Directory doesn't exist! Exiting..."
+    exit 1
+fi
+
+echo
+echo "OTFNFV Tool is configured!"

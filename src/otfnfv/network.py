@@ -134,11 +134,11 @@ if __name__ == '__main__':
     services = net.get('services')
     services.cmd('/usr/sbin/sshd -D &')
 
-    #Get Host 1 and Run SSH daemon
+    # Get Host 1 and Run SSH daemon
     h1 = net.get('h1')
     h1.cmd('/usr/sbin/sshd -D &')
 
-    #Get Host 2 and Run SSH daemon
+    # Get Host 2 and Run SSH daemon
     h2 = net.get('h2')
     h2.cmd('/usr/sbin/sshd -D &')
 

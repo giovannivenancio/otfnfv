@@ -21,7 +21,7 @@ class SimpleSwitchSnort(app_manager.RyuApp):
     def __init__(self, *args, **kwargs):
         super(SimpleSwitchSnort, self).__init__(*args, **kwargs)
         self.snort = kwargs['snortlib']
-        self.snort_port = 4
+        self.filter_port = 4
         self.mac_to_port = {}
 
         socket_config = {'unixsock': True}
@@ -104,7 +104,7 @@ class SimpleSwitchSnort(app_manager.RyuApp):
         # duplicate it to Filter host
         if src not in ['00:00:00:00:00:01', '00:00:00:00:00:04']:
             actions = [parser.OFPActionOutput(out_port),
-                       parser.OFPActionOutput(self.snort_port)]
+                       parser.OFPActionOutput(self.filter_port)]
         else:
             actions = [parser.OFPActionOutput(out_port)]
 
