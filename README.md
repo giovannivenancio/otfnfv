@@ -1,7 +1,5 @@
 # On-The-Fly NFV
 
-One Paragraph of project description goes here
-
 On-The-Fly NFV is a tool that instantiate, remove and manage Virtualized Network Functions (VNFs) in real time. This tool provides a simple and intuitive way to create specific filters that are applied to packet flows and that determines to which VNFs packets should be forwarded.
 
 ## Prerequisites
