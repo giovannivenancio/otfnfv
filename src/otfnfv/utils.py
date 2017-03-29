@@ -6,10 +6,10 @@ import subprocess
 from pymongo import MongoClient
 
 # Settings file
-CONFIG_FILE = '/etc/otfnfv.cfg'
+CONFIG_FILE = '/etc/otfnfv.conf'
 
 if not os.path.isfile(CONFIG_FILE):
-    print "Make sure you have a %s file in /etc !" % 'otfnfv.cfg'
+    print "Make sure you have a %s file in /etc !" % 'otfnfv.conf'
     exit(1)
 
 config = ConfigParser.ConfigParser()

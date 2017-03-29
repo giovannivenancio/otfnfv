@@ -30,7 +30,7 @@ else
 fi
 
 # Create log directory
-if [ ! -d "$DIRECTORY" ]; then
+if [ ! -d "/var/log/otfnfv/" ]; then
     mkdir "/var/log/otfnfv/"
     echo "[OK] Created log directory in /var/log/"
 fi
@@ -41,7 +41,7 @@ echo "[OK] UDS Socket"
 echo
 
 # Create symbolic link to executable
-echo -n "Inform otfnfv executable path (under otfnfv/src/otfnfv directory): "
+echo -n "Inform otfnfv source code path"
 read DIRECTORY
 
 if [ -d "$DIRECTORY" ]; then

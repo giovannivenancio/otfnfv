@@ -15,11 +15,24 @@ On-The-Fly NFV tool is built upon Ryu Controller, MongoDB and Mininet. Make sure
 After installing the prerequisites, follow these steps to install the On-The-Fly NFV tool:
 
 ```
-# Clone source code.
+# Install Mininet
+git clone git://github.com/mininet/mininet
+sudo mininet/util/install.sh -a
+
+# Install Ryu Controller
+git clone git://github.com/osrg/ryu.git
+sudo python ryu/setup.py install
+
+# Clone On-The-Fly NFV source code.
 git clone https://github.com/giovannivenancio/otfnfv.git
 
 # Change to installation directory.
 cd ./otfnfv/install/
+
+# Execute 'setup.py' and 'install_packages.sh' script.
+# These scripts will install necessary packages and libraries.
+sudo ./setup.py install
+sudo ./install_packages.sh
 
 # Edit 'otfnfv.conf.example' file and replace "remote_host" and
 # both "path" information.
@@ -28,10 +41,6 @@ vim otfnfv.conf.example
 # Execute 'config.sh' script. This script will get information
 # about some paths and will create on system some required files.
 sudo ./config.sh
-
-# Execute 'setup.py' script. This script will install necessary
-# python libraries.
-sudo ./setup install
 
 # Execute 'create_db.py' script. This script will create
 # and populate the database.
