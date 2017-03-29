@@ -41,7 +41,7 @@ echo "[OK] UDS Socket"
 echo
 
 # Create symbolic link to executable
-echo -n "Inform otfnfv source code path"
+echo -n "On-The-Fly NFV source code path: "
 read DIRECTORY
 
 if [ -d "$DIRECTORY" ]; then

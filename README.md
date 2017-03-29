@@ -21,7 +21,7 @@ sudo mininet/util/install.sh -a
 
 # Install Ryu Controller
 git clone git://github.com/osrg/ryu.git
-sudo python ryu/setup.py install
+cd ryu; sudo python setup.py install; cd ..
 
 # Clone On-The-Fly NFV source code.
 git clone https://github.com/giovannivenancio/otfnfv.git
@@ -41,6 +41,10 @@ vim otfnfv.conf.example
 # Execute 'config.sh' script. This script will get information
 # about some paths and will create on system some required files.
 sudo ./config.sh
+
+# Execute 'mongo_install.sh' script. This script will install
+# MongoDB database.
+sudo ./mongo_install.sh
 
 # Execute 'create_db.py' script. This script will create
 # and populate the database.

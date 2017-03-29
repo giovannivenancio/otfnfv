@@ -13,7 +13,7 @@ fi
 apt-get update
 
 apt-get install -y \
-    git vim python-pip \
+    vim python-pip \
     python-webob python-routes python-oslo.config \
     python-msgpack python-eventlet python-imaging-tk
 
